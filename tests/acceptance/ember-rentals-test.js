@@ -10,6 +10,10 @@ module("Acceptance | ember rentals", function (hooks) {
     await visit("/");
 
     assert.equal(currentURL(), "/");
+
+    // assert.dom("nav").exists();
+    // assert.dom("h1").hasText("Ember Rentals");
+
     assert.dom("h2").hasText("Welcome to Ember Rentals"); //check for text in h1
 
     assert.dom("a.button").hasText("About");
@@ -30,6 +34,10 @@ module("Acceptance | ember rentals", function (hooks) {
     await visit("/about");
 
     assert.equal(currentURL(), "/about");
+
+    // assert.dom("nav").exists();
+    // assert.dom("h1").hasText("Ember Rentals");
+
     assert.dom("h2").hasText("About Ember Rentals"); //check for text in h1
 
     assert.dom("a.button").hasText("Contact");
@@ -49,6 +57,10 @@ module("Acceptance | ember rentals", function (hooks) {
     await visit("/getting-in-touch");
 
     assert.equal(currentURL(), "/getting-in-touch");
+
+    // assert.dom("nav").exists();
+    // assert.dom("h1").hasText("Ember Rentals");
+
     assert.dom("h2").hasText("Contact Us"); //check for text in h1
 
     assert.dom("a.button").hasText("About");
@@ -62,5 +74,16 @@ module("Acceptance | ember rentals", function (hooks) {
     assert.dom(".jumbo a#home").hasText("Home");
     await click("a#home");
     assert.equal(currentURL(), "/", "visited home page");
+  });
+  test("checking navbar link", async (assert) => {
+    await visit("/");
+    await click("nav a.menu-index");
+    assert.equal(currentURL(), "/");
+
+    await click("nav a.menu-about");
+    assert.equal(currentURL(), "/about");
+
+    await click("nav a.menu-contact");
+    assert.equal(currentURL(), "/getting-in-touch");
   });
 });
