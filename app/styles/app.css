@@ -70,7 +70,7 @@ p {
  */
 
 .container {
-  max-width: 1024px;
+  max-width: 98vw;
   min-height: 100vh;
   background: #f9f9f9;
   margin: 0 auto;
